@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:zq="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <com.zhangqie.customcontrol.demo2.CircularAttrsView
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:background="#e4e4e4"
+        zq:circular_background_color="@color/colorAccent"
+        zq:circular_circle_gravity="left"
+        zq:circular_height="150dp"
+        zq:circular_width="300dp"
+        zq:circular_circle_radius="15dp"
+        android:layout_margin="5dp"
+        android:paddingLeft="10dp"
+        />
+</LinearLayout>

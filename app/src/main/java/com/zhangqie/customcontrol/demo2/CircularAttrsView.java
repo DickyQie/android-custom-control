@@ -1,6 +1,7 @@
-package com.zhangqie.customcontrol.demo1;
+package com.zhangqie.customcontrol.demo2;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -12,7 +13,7 @@ import android.view.View;
 import com.zhangqie.customcontrol.R;
 
 
-public class CircularView extends View {
+public class CircularAttrsView extends View {
 
 
     /****
@@ -20,36 +21,70 @@ public class CircularView extends View {
      * 这里的默认的Style是指它在当前Application或Activity所用的Theme中的默认Style，且只有在明确调用的时候才会生效，
      */
 
-    private final static String TAG = CircularView.class.getName();
+    private final static String TAG = CircularAttrsView.class.getName();
+
 
     private Paint mPaint;
+    private int backgroundColor = Color.GRAY;
+    private float radius;
+    private float width;
+    private float height;
 
-    private RectF oval;
+    private float centerX = 100;
+    private float centerY = 100;
+    public static final int LEFT = 0;
+    public static final int TOP = 1;
+    public static final int CENTER = 2;
+    public static final int RIGHT = 3;
+    public static final int BOTTOM = 4;
 
-    public CircularView(Context context) {
+
+    private int gravity = CENTER;
+
+
+
+    public CircularAttrsView(Context context) {
         super(context);
         init();
     }
 
-    public CircularView(Context context, AttributeSet attrs) {
+    public CircularAttrsView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        init();
+        initParams(context,attrs);
     }
 
-    public CircularView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public CircularAttrsView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init();
+        initParams(context,attrs);
     }
 
-    public CircularView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        super(context, attrs, defStyleAttr, defStyleRes);
-        init();
-    }
 
     private void init(){
         mPaint = new Paint();
         mPaint.setAntiAlias(true);
-        oval = new RectF();
+    }
+
+    private void initParams(Context context,AttributeSet attrs){
+        mPaint = new Paint();
+        mPaint.setAntiAlias(true);
+        /***
+         * 每一个属性集合编译之后都会对应一个styleable对象，通过styleable对象获取TypedArray typedArray，
+         * 然后通过键值对获取属性值，这点有点类似SharedPreference的取法。
+         */
+        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.CircularAttrsView);
+        if (typedArray != null){
+            try {
+                backgroundColor = typedArray.getColor(R.styleable.CircularAttrsView_circular_background_color,Color.GRAY);
+                radius = typedArray.getDimension(R.styleable.CircularAttrsView_circular_circle_radius,0);
+                width = typedArray.getDimension(R.styleable.CircularAttrsView_circular_width,0);
+                height = typedArray.getDimension(R.styleable.CircularAttrsView_circular_height,0);
+                gravity = typedArray.getInt(R.styleable.CircularAttrsView_circular_circle_gravity,CENTER);
+                Log.e(TAG,backgroundColor+"--"+radius+"--"+width+"--"+height+"--"+gravity);
+                typedArray.recycle();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     /****
@@ -85,7 +120,6 @@ public class CircularView extends View {
         Log.i(TAG,"onMeasure--widthSize--->"+ widthSize);
         Log.i(TAG,"onMeasure--heightMode-->"+ heightMode);
         Log.i(TAG,"onMeasure--heightSize-->"+heightSize);
-
     }
 
 
@@ -130,18 +164,10 @@ public class CircularView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        mPaint.setColor(Color.BLACK);
+        mPaint.setColor(backgroundColor);
         // FILL填充, STROKE描边,FILL_AND_STROKE填充和描边
         mPaint.setStyle(Paint.Style.FILL_AND_STROKE);
-        int width = getWidth();//布局中自定义控件的宽度
-        int height = getHeight();
-        Log.i(TAG,"onDraw--->" + width + "--" + height);
-        float radius = width /4;
-        canvas.drawCircle(width/2,width/2,radius,mPaint);//画圆
-        mPaint.setColor(getResources().getColor(R.color.colorAccent));
-        //用于定义的圆弧的形状和大小的界限
-        oval.set(width/2 - radius,width/2 - radius, width/2 + radius, width/2 + radius);
-        //根据进度画圆弧
-        canvas.drawArc(oval,270,120,true,mPaint);
+
+        canvas.drawRoundRect(centerX,centerY,width,height,radius,radius,mPaint);
     }
 }

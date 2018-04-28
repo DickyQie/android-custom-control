@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.zhangqie.customcontrol.demo1.Demo1Activity;
+import com.zhangqie.customcontrol.demo2.Demo2Activity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -44,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, Demo1Activity.class));
                 break;
             case 1:
-                startActivity(new Intent(MainActivity.this, Demo1Activity.class));
+                startActivity(new Intent(MainActivity.this, Demo2Activity.class));
                 break;
             case 2:
                 startActivity(new Intent(MainActivity.this, Demo1Activity.class));
