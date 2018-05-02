@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
     private ListView listView;
 
     private String[] strings = new String[]{
-            "自定义控件1","自定义控件1-2","自定义控件2","自定义控件2-ViewGroup实现标签云"
+            "自定义控件1","自定义控件---属性篇","自定义控件2","自定义控件2-ViewGroup实现标签云"
     };
 
     @Override

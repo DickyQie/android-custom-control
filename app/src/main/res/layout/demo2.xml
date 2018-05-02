@@ -7,15 +7,15 @@
 
 
     <com.zhangqie.customcontrol.demo2.CircularAttrsView
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="300dp"
         android:background="#e4e4e4"
         zq:circular_background_color="@color/colorAccent"
-        zq:circular_circle_gravity="left"
-        zq:circular_height="150dp"
-        zq:circular_width="300dp"
-        zq:circular_circle_radius="15dp"
+        zq:circular_circle_gravity="center"
+        zq:circular_circle_progress="30"
+        zq:circular_progress_color="@color/colorPrimary"
+        zq:circular_circle_radius="50dp"
         android:layout_margin="5dp"
-        android:paddingLeft="10dp"
+        android:padding="10dp"
         />
 </LinearLayout>

@@ -23,23 +23,23 @@ public class CircularAttrsView extends View {
 
     private final static String TAG = CircularAttrsView.class.getName();
 
-
     private Paint mPaint;
     private int backgroundColor = Color.GRAY;
+    private int progressColor = Color.BLUE;
     private float radius;
-    private float width;
-    private float height;
+    private float progress;
 
-    private float centerX = 100;
-    private float centerY = 100;
+    private float centerX = 0;
+    private float centerY = 0;
     public static final int LEFT = 0;
     public static final int TOP = 1;
     public static final int CENTER = 2;
     public static final int RIGHT = 3;
     public static final int BOTTOM = 4;
 
-
     private int gravity = CENTER;
+
+    private RectF rectF;
 
 
 
@@ -67,23 +67,20 @@ public class CircularAttrsView extends View {
     private void initParams(Context context,AttributeSet attrs){
         mPaint = new Paint();
         mPaint.setAntiAlias(true);
+        rectF = new RectF();
         /***
          * 每一个属性集合编译之后都会对应一个styleable对象，通过styleable对象获取TypedArray typedArray，
          * 然后通过键值对获取属性值，这点有点类似SharedPreference的取法。
          */
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.CircularAttrsView);
         if (typedArray != null){
-            try {
-                backgroundColor = typedArray.getColor(R.styleable.CircularAttrsView_circular_background_color,Color.GRAY);
-                radius = typedArray.getDimension(R.styleable.CircularAttrsView_circular_circle_radius,0);
-                width = typedArray.getDimension(R.styleable.CircularAttrsView_circular_width,0);
-                height = typedArray.getDimension(R.styleable.CircularAttrsView_circular_height,0);
-                gravity = typedArray.getInt(R.styleable.CircularAttrsView_circular_circle_gravity,CENTER);
-                Log.e(TAG,backgroundColor+"--"+radius+"--"+width+"--"+height+"--"+gravity);
-                typedArray.recycle();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            backgroundColor = typedArray.getColor(R.styleable.CircularAttrsView_circular_background_color,Color.GRAY);
+            progressColor = typedArray.getColor(R.styleable.CircularAttrsView_circular_progress_color,Color.BLUE);
+            radius = typedArray.getDimension(R.styleable.CircularAttrsView_circular_circle_radius,0);
+            progress = typedArray.getInt(R.styleable.CircularAttrsView_circular_circle_progress,0);
+            gravity = typedArray.getInt(R.styleable.CircularAttrsView_circular_circle_gravity,CENTER);
+            Log.e(TAG,backgroundColor+"--"+progressColor+"--"+radius+"--"+progress+"--"+gravity);
+            typedArray.recycle();
         }
     }
 
@@ -120,6 +117,35 @@ public class CircularAttrsView extends View {
         Log.i(TAG,"onMeasure--widthSize--->"+ widthSize);
         Log.i(TAG,"onMeasure--heightMode-->"+ heightMode);
         Log.i(TAG,"onMeasure--heightSize-->"+heightSize);
+
+        int width = getWidth();
+        int height = getHeight();
+        Log.e(TAG, "onDraw---->" + width + "*" + height);
+
+        centerX = width / 2;
+        centerY = width / 2;
+        switch (gravity){
+            case LEFT:
+                centerX = radius + getPaddingLeft();
+                break;
+            case TOP:
+                centerY = radius + getPaddingTop();
+                break;
+            case CENTER:
+                break;
+            case RIGHT:
+                centerX = width - radius - getPaddingRight();
+                break;
+            case BOTTOM:
+                centerY = height - radius - getPaddingBottom();
+                break;
+        }
+
+        float left = centerX - radius;
+        float top = centerY - radius;
+        float right = centerX + radius;
+        float bottom = centerY + radius;
+        rectF.set(left,top,right,bottom);
     }
 
 
@@ -168,6 +194,13 @@ public class CircularAttrsView extends View {
         // FILL填充, STROKE描边,FILL_AND_STROKE填充和描边
         mPaint.setStyle(Paint.Style.FILL_AND_STROKE);
 
-        canvas.drawRoundRect(centerX,centerY,width,height,radius,radius,mPaint);
+
+        canvas.drawCircle(centerX,centerY,radius,mPaint);//画圆
+        mPaint.setColor(progressColor);
+
+        double percent = progress * 1.0 / 100;
+        int angle = (int)(percent * 360);
+        //根据进度画圆弧
+        canvas.drawArc(rectF,270,angle,true,mPaint);
     }
 }

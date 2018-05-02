@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <declare-styleable name="CircularAttrsView">
+        <!--圆形绘制的位置-->
         <attr name="circular_circle_gravity">
-            <flag name="left" value="0"/><!--圆形绘制的位置-->
+            <flag name="left" value="0"/>
             <flag name="top" value="1"/>
             <flag name="center" value="2"/>
             <flag name="right" value="3"/>
@@ -11,8 +11,8 @@
         </attr>
 
         <attr name="circular_circle_radius" format="dimension"/><!--圆形半径-->
-        <attr name="circular_height" format="dimension"/><!--进度显示颜色-->
-        <attr name="circular_width" format="dimension"/><!--进度显示颜色-->
+        <attr name="circular_circle_progress" format="integer"/><!--当前进度值-->
+        <attr name="circular_progress_color" format="color"/><!--进度显示颜色-->
         <attr name="circular_background_color" format="color"/><!--圆形背景色-->
     </declare-styleable>
 </resources>
