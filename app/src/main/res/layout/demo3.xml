@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:zq="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.zhangqie.customcontrol.demo3.TopTabToolView
+        android:id="@+id/tab1"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginTop="10dp"
+        zq:left_tab_drawable="@mipmap/public_fanhui"
+        zq:title_text="我是标题1"
+        zq:tab_background_color="@color/colorAccent"
+        zq:right_tab_drawable="@mipmap/icon_close"
+        zq:right_tab_text="关闭"
+        >
+    </com.zhangqie.customcontrol.demo3.TopTabToolView>
+
+    <com.zhangqie.customcontrol.demo3.TopTabToolView
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginTop="10dp"
+        zq:left_tab_drawable="@mipmap/public_fanhui"
+        zq:title_text="我是标题2"
+        zq:tab_background_color="@color/colorPrimary"
+        zq:right_tab_drawable="@mipmap/icon_close"
+        >
+    </com.zhangqie.customcontrol.demo3.TopTabToolView>
+
+    <com.zhangqie.customcontrol.demo3.TopTabToolView
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginTop="10dp"
+        zq:left_tab_drawable="@mipmap/public_fanhui"
+        zq:title_text="我是标题3"
+        zq:tab_background_color="@color/green"
+        zq:right_tab_text="关闭"
+        zq:right_tab_text_color="@color/colorAccent"
+        >
+    </com.zhangqie.customcontrol.demo3.TopTabToolView>
+
+    <com.zhangqie.customcontrol.demo3.TopTabToolView
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginTop="10dp"
+        zq:left_tab_drawable="@mipmap/public_fanhui"
+        zq:title_text="我是标题4"
+        zq:tab_background_color="@color/red"
+        >
+    </com.zhangqie.customcontrol.demo3.TopTabToolView>
+
+    <com.zhangqie.customcontrol.demo3.TopTabToolView
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginTop="10dp"
+        zq:left_tab_drawable="@mipmap/public_fanhui"
+        zq:title_text="我是标题4"
+        zq:title_color="@color/colorAccent"
+        zq:tab_background_color="@color/qing"
+        zq:right_tab_text="关闭"
+        >
+    </com.zhangqie.customcontrol.demo3.TopTabToolView>
+</LinearLayout>

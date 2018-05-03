@@ -10,13 +10,14 @@ import android.widget.ListView;
 
 import com.zhangqie.customcontrol.demo1.Demo1Activity;
 import com.zhangqie.customcontrol.demo2.Demo2Activity;
+import com.zhangqie.customcontrol.demo3.Demo3Activity;
 
 public class MainActivity extends AppCompatActivity {
 
     private ListView listView;
 
     private String[] strings = new String[]{
-            "自定义控件1","自定义控件---属性篇","自定义控件2","自定义控件2-ViewGroup实现标签云"
+            "自定义控件","自定义控件---属性篇","自定义控件--组合控件","自定义控件-ViewGroup实现标签云"
     };
 
     @Override
@@ -48,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, Demo2Activity.class));
                 break;
             case 2:
-                startActivity(new Intent(MainActivity.this, Demo1Activity.class));
+                startActivity(new Intent(MainActivity.this, Demo3Activity.class));
                 break;
             case 3:
                 startActivity(new Intent(MainActivity.this, Demo1Activity.class));

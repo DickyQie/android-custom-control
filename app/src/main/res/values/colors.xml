@@ -3,4 +3,11 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+
+
+    <color name="green">#53A919</color>
+    <color name="gray">#6c6c6c</color>
+    <color name="red">#FF0000</color>
+    <color name="qing">#01A9F2</color>
 </resources>
