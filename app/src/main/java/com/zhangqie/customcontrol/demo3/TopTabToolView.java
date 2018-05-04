@@ -130,7 +130,4 @@ public class TopTabToolView extends RelativeLayout {
             titleBarRightBtn.setOnClickListener(onClickListener);
         }
     }
-
-
-
 }

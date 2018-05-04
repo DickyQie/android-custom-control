@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#e4e4e4"
+    >
+
+    <com.zhangqie.customcontrol.demo4.FlowLayouta
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        >
+
+        <TextView
+            style="@style/text_style"
+            android:background="@drawable/roundsquare_blue"
+            android:text="ViewGroup"
+            android:textColor="@color/colorAccent"
+            />
+
+        <TextView
+            style="@style/text_style"
+            android:background="@drawable/roundsquare_blue"
+            android:text="this is View "
+          />
+
+        <TextView
+            style="@style/text_style"
+            android:background="@drawable/roundsquare_blue"
+            android:text="ViewGroup --自定义控件"
+          />
+
+        <TextView
+            style="@style/text_style"
+            android:background="@drawable/roundsquare_blue"
+            android:text="切切歆语 "
+          android:textColor="@color/colorAccent" />
+
+        <TextView
+            style="@style/text_style"
+            android:background="@drawable/roundsquare_blue"
+            android:text="Android "
+         />
+
+        <TextView
+            style="@style/text_style"
+            android:background="@drawable/roundsquare_blue"
+            android:text="Android 自定义控件"
+         />
+
+        <TextView
+            style="@style/text_style"
+            android:background="@drawable/roundsquare_blue"
+            android:text="Android 自定义控件 之 ViewGroup流式布局"
+           />
+    </com.zhangqie.customcontrol.demo4.FlowLayouta>
+</LinearLayout>

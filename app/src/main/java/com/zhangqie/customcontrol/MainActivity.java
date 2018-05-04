@@ -11,13 +11,15 @@ import android.widget.ListView;
 import com.zhangqie.customcontrol.demo1.Demo1Activity;
 import com.zhangqie.customcontrol.demo2.Demo2Activity;
 import com.zhangqie.customcontrol.demo3.Demo3Activity;
+import com.zhangqie.customcontrol.demo4.Demo4_1Activity;
+import com.zhangqie.customcontrol.demo4.Demo4_2Activity;
 
 public class MainActivity extends AppCompatActivity {
 
     private ListView listView;
 
     private String[] strings = new String[]{
-            "自定义控件","自定义控件---属性篇","自定义控件--组合控件","自定义控件-ViewGroup实现标签云"
+            "自定义控件","自定义控件---属性篇","自定义控件--组合控件","自定义控件-ViewGroup实现流式布局1","自定义控件-ViewGroup实现流式布局2"
     };
 
     @Override
@@ -52,10 +54,10 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, Demo3Activity.class));
                 break;
             case 3:
-                startActivity(new Intent(MainActivity.this, Demo1Activity.class));
+                startActivity(new Intent(MainActivity.this, Demo4_1Activity.class));
                 break;
             case 4:
-                startActivity(new Intent(MainActivity.this, Demo1Activity.class));
+                startActivity(new Intent(MainActivity.this, Demo4_2Activity.class));
                 break;
         }
     }
